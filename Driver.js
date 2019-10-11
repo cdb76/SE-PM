@@ -6,10 +6,6 @@ var fs = require('fs');
 var util = require('util');
 var logger = fs.createWriteStream('log.txt', { flags: 'w' });
 
-console.log = function () {
-  logFile.write(util.format.apply(null, arguments) + '\n');
-}
-
 app.get('/', (req, res) => {
  logger.write(`Connected to Route: /`);
  res.send('Go to /version or /logs');
@@ -17,7 +13,7 @@ app.get('/', (req, res) => {
 });
 
 app.get("/version", (req, res) => {
- clogger.write(`Connected to Route: /version`);
+ logger.write(`Connected to Route: /version`);
  res.send(`This is version 0 of the HotBurger service`);
  logger.write(`Responded to Route: /version`);
 });
