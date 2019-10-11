@@ -25,7 +25,7 @@ app.get("/version", (req, res) => {
 app.get("/logs", (req, res) => {
  console.log(`Connected to Route: /logs`);
  var fs = require('fs');
- var buffer = new Buffer(fs.readFileSync('index.html','utf8'));
+ var buffer = new Buffer(fs.readFileSync('log.log','utf8'));
  res.send(Buffer.toString());
  console.log(`Responded to Route: /version`);
 });
