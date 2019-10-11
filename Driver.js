@@ -7,7 +7,7 @@ var util = require('util');
 var logger = fs.createWriteStream('log.log', { flags: 'w' });
 
 app.get('/', (req, res) => {
- logger.write(('Connected to Route0: / ') + '<br/>');
+ logger.write(('Connected to Route: / ') + '<br/>');
  res.send('Go to /version or /logs');
  logger.write('Responded to Route: / <br/>');
 });
