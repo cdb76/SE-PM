@@ -4,7 +4,7 @@ const port = 80
 
 var fs = require('fs');
 var util = require('util');
-var logger = fs.createWriteStream('./logs/log.log', { flags: 'w' });
+var logger = fs.createWriteStream('../logs/log.log', { flags: 'w' });
 
 app.get('/', (req, res) => {
  logger.write(('Connected to Route: / ') + '<br/>');
@@ -20,7 +20,7 @@ app.get("/version", (req, res) => {
 
 app.get("/logs", (req, res) => {
  logger.write('Connected to Route: /logs <br/>');
- var logContents = fs.readFileSync('./logs/log.log', 'utf8');
+ var logContents = fs.readFileSync('../logs/log.log', 'utf8');
  res.send(logContents);
  logger.write('Responded to Route: /version <br/>');
 });
