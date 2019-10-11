@@ -22,7 +22,7 @@ app.get("/logs", (req, res) => {
  logger.write('Connected to Route: /logs <br/>');
  var logContents = fs.readFileSync('../logs/log.log', 'utf8');
  res.send(logContents);
- logger.write('Responded to Route: /version <br/>');
+ logger.write('Responded to Route: /logs <br/>');
 });
 
 app.listen(port, () => {
