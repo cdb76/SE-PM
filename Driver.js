@@ -3,13 +3,17 @@ const app = express()
 const port = 80
 
 app.get('/', (req, res) => {
- var str = str.link("https://google.com");
- res.send('${str}');
+ res.send('Go to /version or /logs');
 });
 
 app.get("/version", (req, res) => {
  res.send(`This is version 0 of the HotBurger service`);
 });
+
+app.get("/logs", (req, res) => {
+ res.send(`Logs`);
+});
+
 app.listen(port, () => {
  console.log(`Server running on port: ${port}`);
 });
