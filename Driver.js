@@ -20,10 +20,8 @@ app.get("/version", (req, res) => {
 
 app.get("/logs", (req, res) => {
  logger.write('Connected to Route: /logs \n');
- fs.readFileSync('log.log', 'utf8', function(err, logContents){
-	 if(err) throw err;
-	 res.send(logContents);
- });
+ var logContents = fs.readFileSync('log.log', 'utf8');
+ res.send(logContents);
  logger.write('Responded to Route: /version \n');
 });
 
