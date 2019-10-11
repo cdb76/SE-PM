@@ -3,7 +3,8 @@ const app = express()
 const port = 80
 
 app.get('/', (req, res) => {
- res.send(str.link("https://google.com"))
+ var str = str.link("https://google.com");
+ res.send('${str}');
 });
 
 app.get("/version", (req, res) => {
