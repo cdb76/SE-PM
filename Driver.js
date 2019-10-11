@@ -4,10 +4,10 @@ const port = 80
 
 var fs = require('fs');
 var util = require('util');
-var logger = fs.createWriteStream('log.log', { flags: 'w' });
+var logger = fs.createWriteStream('log.txt', { flags: 'w' });
 
 app.get('/', (req, res) => {
- logger.write('Connected to Route: / \r\n');
+ logger.write(('Connected to Route0: / ') + '\n');
  res.send('Go to /version or /logs');
  logger.write('Responded to Route: / \r\n');
 });
@@ -20,11 +20,11 @@ app.get("/version", (req, res) => {
 
 app.get("/logs", (req, res) => {
  logger.write('Connected to Route: /logs \n');
- var logContents = fs.readFileSync('log.log').toString();
+ var logContents = fs.readFileSync('log.txt').toString();
  res.send(logContents);
  logger.write('Responded to Route: /version \n');
 });
 
 app.listen(port, () => {
- logger.write('Server running on port: ${port} \n');
+ logger.write('Server running on port: ${port}');
 });
