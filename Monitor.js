@@ -4,7 +4,7 @@ const port = 8080
 
 var fs = require('fs');
 var util = require('util');
-var logger = fs.createWriteStream('../logs/log.log', { flags: 'wa' });
+var logger = fs.createWriteStream('../logs/log.log', { flags: 'a' });
 
 app.get("/gettotal", (req, res) => {
 	res.send(`/gettotal`);
