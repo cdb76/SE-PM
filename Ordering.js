@@ -4,7 +4,7 @@ const port = 80
 
 var fs = require('fs');
 var util = require('util');
-var logger = fs.createWriteStream('../logs/log.log', { flags: 'wa' });
+var logger = fs.createWriteStream('../logs/log.log', { flags: 'a' });
 
 app.get('/', (req, res) => {
  logger.write(('Connected to Route: / ') + '<br/>');
@@ -19,7 +19,7 @@ app.get("/version", (req, res) => {
 });
 
 app.post('/purchase', function (req, res)
-	res.send('/purchase');
+
 });
 
 app.listen(port, () => {
