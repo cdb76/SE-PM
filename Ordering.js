@@ -19,8 +19,7 @@ app.get("/version", (req, res) => {
 });
 
 app.post('/purchase', function (req, res)
-	var item = req.body.item;
-	res.send(item);
+	res.send('/purchase');
 });
 
 app.listen(port, () => {
