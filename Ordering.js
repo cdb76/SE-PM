@@ -6,7 +6,8 @@ var fs = require('fs');
 var util = require('util');
 var logger = fs.createWriteStream('../logs/log.log', { flags: 'a' });
 
-app.use(express.json());
+app.use(bodyParser.urlencoded({ extended: false }));
+app.use(bodyParser.json())
 
 app.get('/', (req, res) => {
  logger.write(('Connected to Route: / ') + '<br/>');
@@ -21,7 +22,7 @@ app.get("/version", (req, res) => {
 });
 
 app.post('/purchase', function (req, res) {
-	logger.write.json(req.body);
+	logger.write(req.body);
 });
 
 app.get("/logs", (req, res) => {
