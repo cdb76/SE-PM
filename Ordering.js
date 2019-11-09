@@ -26,7 +26,7 @@ app.get("/version", (req, res) => {
  logger.write('Responded to Route: /version <br/>');
 });
 
-app.post('/purchase', function (req, res) {
+app.post('/purchase', function (req, res) => {
 	logger.write(req.body);
 });
 
