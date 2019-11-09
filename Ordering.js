@@ -6,12 +6,6 @@ var fs = require('fs');
 var util = require('util');
 var logger = fs.createWriteStream('../logs/log.log', { flags: 'a' });
 
-app.use(
-	express.urlencoded({
-				extended: false
-	})
-);
-
 app.use(express.json());
 
 app.get('/', (req, res) => {
@@ -27,7 +21,7 @@ app.get("/version", (req, res) => {
 });
 
 app.post('/purchase', function (req, res) {
-	logger.write(req.body);
+	logger.write(json(req.query));
 });
 
 app.get("/logs", (req, res) => {
