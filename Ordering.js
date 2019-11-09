@@ -23,6 +23,11 @@ app.post('/purchase', function (req, res) {
 	logger.write(req.body.item + ',' + req.body.quantity);
 });
 
+app.get("/logs", (req, res) => {
+ var logContents = fs.readFileSync('../logs/log.log', 'utf8');
+ res.send(logContents);
+});
+
 app.listen(port, () => {
  logger.write('Server running on port: ' + port + '<br/>');
 });
