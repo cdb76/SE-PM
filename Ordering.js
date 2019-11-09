@@ -19,7 +19,6 @@ app.get("/version", (req, res) => {
 });
 
 app.post('/purchase', function (req, res) {
-	res.send(req.body.item);
 	logger.write(req.body.item + ',' + req.body.quantity);
 });
 
