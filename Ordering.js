@@ -6,6 +6,14 @@ var fs = require('fs');
 var util = require('util');
 var logger = fs.createWriteStream('../logs/log.log', { flags: 'a' });
 
+app.use(
+	express.urlencoded({
+				extended: false
+	})
+);
+
+app.use(express.json());
+
 app.get('/', (req, res) => {
  logger.write(('Connected to Route: / ') + '<br/>');
  res.send('Go to /version or /logs');
