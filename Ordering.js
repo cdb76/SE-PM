@@ -21,8 +21,8 @@ app.get("/version", (req, res) => {
 });
 
 app.post('/purchase', function (req, res) {
-	//logger.write(req.body.toString);
-	res.send(req.body);
+	//logger.write(req.body);
+	res.send(req.query);
 });
 
 app.get("/logs", (req, res) => {
