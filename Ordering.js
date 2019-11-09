@@ -22,7 +22,7 @@ app.get("/version", (req, res) => {
 
 app.post('/purchase', function (req, res) {
 	//logger.write(req.body.item);
-	res.send(req.body.item);
+	res.send(req.query.item);
 });
 
 app.get("/logs", (req, res) => {
