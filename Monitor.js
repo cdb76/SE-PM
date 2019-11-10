@@ -8,7 +8,7 @@ var logger = fs.createWriteStream('../logs/log.log', { flags: 'a' });
 
 app.get("/gettotal", (req, res) => {
 	//logger.write(('GET:/gettotal') + '<br/>');
-	res.send(`/gettotal`);'
+	res.send(`/gettotal`);
 	//logger.write(('GET:SUCCESS:/gettotal') + '<br/>');
 });
 app.get("/gettopseller", (req, res) => {
