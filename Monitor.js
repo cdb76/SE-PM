@@ -19,15 +19,15 @@ app.get("/gettopseller", (req, res) => {
 });
 app.get("/getrequestcount", (req, res) => {
 	logger.write('GET:/getrequestcount\n');
-	res.send(`/getrequestcount`);
+	res.send(`Total number of requests: ` + info.getRequestCount());
 	logger.write('SUCCESS:/getrequestcount\n');
 });
-app.get("/getrequeststatus", (req, res) => {
+app.get("/getlastrequeststatus", (req, res) => {
 	logger.write('GET:/getrequeststatus\n');
-	res.send(`/getrequeststatus`);
+	res.send(`Last request: ` + info.getLastRequestStatus());
 	logger.write('SUCCESS:/getrequeststatus\n');
 });
-app.get("/getrequesttime", (req, res) => {
+app.get("/getlastrequesttime", (req, res) => {
 	logger.write('GET:/getrequesttime\n');
 	res.send(`/getrequesttime`);
 	logger.write('SUCCESS:/getrequesttime\n');

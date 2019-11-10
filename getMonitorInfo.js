@@ -64,6 +64,28 @@ exports.getTopSeller = function() {
 		topSellerName = "Cookie";
 	}
 	
-	return topSeller;
-	//return topSellerName;
+	return topSellerName;
+};
+
+exports.getRequestCount = function() {
+	var logContents = fs.readFileSync('../logs/log.log', 'utf8').toString().split('\n');
+	var requestCount = 0;
+	for (i in logContents) {
+		var info = logContents[i].split(":");
+		
+		if(info[0] == "POST" || info[0] == "GET") {
+			requestCount++;
+		}
+	return topSellerName;
+};
+
+exports.getLastRequestStatus = function() {
+	var logContents = fs.readFileSync('../logs/log.log', 'utf8').toString().split('\n');
+	
+	var requestStatus = logContents[logContents.length()-2]
+	var info = requestStatus.split(":");
+	if(info[0] == "SUCCESS") {
+		return "Success";
+	}
+	else {return "fail";}
 };
