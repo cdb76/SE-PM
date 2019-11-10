@@ -76,8 +76,10 @@ exports.getRequestCount = function() {
 		if(info[0] == "POST" || info[0] == "GET") {
 			requestCount++;
 		}
+	}
 	return topSellerName;
 };
+
 
 exports.getLastRequestStatus = function() {
 	var logContents = fs.readFileSync('../logs/log.log', 'utf8').toString().split('\n');
