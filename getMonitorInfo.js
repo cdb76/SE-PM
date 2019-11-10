@@ -36,16 +36,16 @@ exports.getTopSeller = function() {
 		
 		if(info[0] == "POST") {
 			if(info[1] == "Hotdog") {
-				totalDog++;
+				totalDog = totalDog + info[2];
 			}
 			else if(info[1] == "Hamburger") {
-				totalBurger++;
+				totalBurger = totalBurger + info[2];
 			}
 			else if(info[1] == "Soda") {
-				totalSoda++;
+				totalSoda = totalSoda + info[2];
 			}
 			else if(info[1] == "Cookie") {
-				totalCookie++;
+				totalCookie = totalCookie + info[2];
 			}
 		}
 	}
@@ -64,6 +64,5 @@ exports.getTopSeller = function() {
 		topSellerName = "Cookie";
 	}
 	
-	//return topSellerName;
-	return topSeller;
+	return topSellerName;
 };
