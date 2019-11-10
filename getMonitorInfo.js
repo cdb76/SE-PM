@@ -36,16 +36,16 @@ exports.getTopSeller = function() {
 		
 		if(info[0] == "POST") {
 			if(info[1] == "Hotdog") {
-				totalDog = totalDog + info[2];
+				totalDog = totalDog + parse.Int(info[2]);
 			}
 			else if(info[1] == "Hamburger") {
-				totalBurger = totalBurger + info[2];
+				totalBurger = totalBurger + parse.Int(info[2]);
 			}
 			else if(info[1] == "Soda") {
-				totalSoda = totalSoda + info[2];
+				totalSoda = totalSoda + parse.Int(info[2]);
 			}
 			else if(info[1] == "Cookie") {
-				totalCookie = totalCookie + info[2];
+				totalCookie = totalCookie + parse.Int(info[2]);
 			}
 		}
 	}
