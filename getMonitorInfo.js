@@ -84,10 +84,7 @@ exports.getRequestCount = function() {
 exports.getLastRequestStatus = function() {
 	var logContents = fs.readFileSync('../logs/log.log', 'utf8').toString().split('\n');
 	
-	var requestStatus = logContents[logContents.length-2]
+	var requestStatus = logContents[(logContents.length)-2]
 	var info = requestStatus.split(":");
-	if(info[0] == "SUCCESS") {
-		return "Success";
-	}
-	else {return "fail";}
+	return info[0];
 };
