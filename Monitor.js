@@ -8,29 +8,29 @@ var util = require('util');
 var logger = fs.createWriteStream('../logs/log.log', { flags: 'a' });
 
 app.get("/gettotal", (req, res) => {
-	logger.write(('GET:/gettotal\n');
+	logger.write(('GET:/gettotal') + '<br/>');
 	res.send(`/gettotal ` + info.getTotal());
-	logger.write(('GET:SUCCESS:/gettotal\n');
+	logger.write(('GET:SUCCESS:/gettotal') + '<br/>');
 });
 app.get("/gettopseller", (req, res) => {
-	logger.write(('GET:/gettopseller\n');
+	logger.write(('GET:/gettopseller') + '<br/>');
 	res.send(`/gettopseller`);
-	logger.write(('GET:SUCCESS:/gettopseller\n');
+	logger.write(('GET:SUCCESS:/gettopseller') + '<br/>');
 });
 app.get("/getrequestcount", (req, res) => {
-	logger.write(('GET:/getrequestcount\n');
+	logger.write(('GET:/getrequestcount') + '<br/>');
 	res.send(`/getrequestcount`);
-	logger.write(('GET:SUCCESS:/getrequestcount\n');
+	logger.write(('GET:SUCCESS:/getrequestcount') + '<br/>');
 });
 app.get("/getrequeststatus", (req, res) => {
-	logger.write(('GET:/getrequeststatus\n');
+	logger.write(('GET:/getrequeststatus') + '<br/>');
 	res.send(`/getrequeststatus`);
-	logger.write(('GET:SUCCESS:/getrequeststatus\n');
+	logger.write(('GET:SUCCESS:/getrequeststatus') + '<br/>');
 });
 app.get("/getrequesttime", (req, res) => {
-	logger.write(('GET:/getrequesttime\n');
+	logger.write(('GET:/getrequesttime') + '<br/>');
 	res.send(`/getrequesttime`);
-	logger.write(('SUCCESS:/getrequesttime\n');
+	logger.write(('SUCCESS:/getrequesttime') + '<br/>');
 });
 
 app.get("/logs", (req, res) => {
@@ -40,5 +40,5 @@ app.get("/logs", (req, res) => {
 });
 
 app.listen(port, () => {
- logger.write('Server running on port: ' + port + '\n');
+ logger.write('Server running on port: ' + port + '<br/>');
 });
