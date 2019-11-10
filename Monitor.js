@@ -6,8 +6,13 @@ var fs = require('fs');
 var util = require('util');
 var logger = fs.createWriteStream('../logs/log.log', { flags: 'a' });
 
+function getTotal() {
+	var x = 5;
+}
+
 app.get("/gettotal", (req, res) => {
 	logger.write(('GET:/gettotal') + '<br/>');
+	getTotal();
 	res.send(`/gettotal`);'
 	logger.write(('GET:SUCCESS:/gettotal') + '<br/>');
 });
@@ -31,10 +36,6 @@ app.get("/getrequesttime", (req, res) => {
 	res.send(`/getrequesttime`);
 	logger.write(('SUCCESS:/getrequesttime') + '<br/>');
 });
-
-function gettotal() {
-	var x = 5;
-}
 
 app.listen(port, () => {
  logger.write('Server running on port: ' + port + '<br/>');
