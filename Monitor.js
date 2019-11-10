@@ -9,12 +9,12 @@ var logger = fs.createWriteStream('../logs/log.log', { flags: 'a' });
 
 app.get("/gettotal", (req, res) => {
 	logger.write('GET:/gettotal\n');
-	res.send(`/gettotal ` + info.getTotal());
+	res.send(`Profits: $` + info.getTotal());
 	logger.write('SUCCESS:/gettotal\n');
 });
 app.get("/gettopseller", (req, res) => {
 	logger.write('GET:/gettopseller\n');
-	res.send(`/gettopseller`);
+	res.send(`Top Seller: ` + info.getTopSeller());
 	logger.write('SUCCESS:/gettopseller\n');
 });
 app.get("/getrequestcount", (req, res) => {
