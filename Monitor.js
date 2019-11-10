@@ -41,7 +41,7 @@ function parseLog() {
 	var requestStatus;
 	var requestTime;
 	
-	var logContents = fs.readFileSync('../logs/log.log', 'utf8').toString().split("<br/>");
+	var logContents = fs.readFileSync('../logs/log.log', 'utf8').toString().split('<br/>');
 	
 	for(i in logContents) {
 		var info = logContents[i].split(":");
@@ -67,7 +67,7 @@ function parseLog() {
 				requestStatus = logContents[i];
 		}
 	}
-}
+};
 
 app.listen(port, () => {
  logger.write('Server running on port: ' + port + '<br/>');
