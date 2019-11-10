@@ -1,3 +1,5 @@
+var fs = require('fs');
+
 exports.getTotal = function() {
 	var logContents = fs.readFileSync('../logs/log.log', 'utf8').toString().split('\n');
 	var total = 0;
@@ -6,7 +8,7 @@ exports.getTotal = function() {
 		
 		if(info[0] == "POST") {
 			if(info[1] == "Hotdog") {
-				return "TEST";
+				//return "TEST";
 				total = total + (info[2] * 20);
 			}
 		}
