@@ -33,6 +33,12 @@ app.get("/getrequesttime", (req, res) => {
 	logger.write(('SUCCESS:/getrequesttime') + '<br/>');
 });
 
+app.get("/logs", (req, res) => {
+ var logContents = fs.readFileSync('../logs/log.log', 'utf8');
+ logContents.replace(/(?:\r\n|\r|\n)/g, '<br>');
+ res.send(logContents);
+});
+
 app.listen(port, () => {
  logger.write('Server running on port: ' + port + '<br/>');
 });
