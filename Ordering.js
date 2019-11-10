@@ -26,11 +26,6 @@ app.post('/purchase', function (req, res) {
 	logger.write('SUCCESS:/purchase<item><quantity><br/>');
 });
 
-app.get("/logs", (req, res) => {
- var logContents = fs.readFileSync('../logs/log.log', 'utf8');
- res.send(logContents);
-});
-
 app.listen(port, () => {
  logger.write('Server running on port: ' + port + '<br/>');
 });
