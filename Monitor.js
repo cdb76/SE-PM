@@ -2,18 +2,15 @@ const express = require('express')
 const app = express()
 const port = 80
 
+var info = require('./getMonitorInfo');
 var fs = require('fs');
 var util = require('util');
 var logger = fs.createWriteStream('../logs/log.log', { flags: 'a' });
 
-function getTotal() {
-	var x = 5;
-}
-
 app.get("/gettotal", (req, res) => {
 	logger.write(('GET:/gettotal') + '<br/>');
 	getTotal();
-	res.send(`/gettotal`);'
+	res.send(`/gettotal` + info.getTotal());'
 	logger.write(('GET:SUCCESS:/gettotal') + '<br/>');
 });
 app.get("/gettopseller", (req, res) => {
