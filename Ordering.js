@@ -9,9 +9,9 @@ var logger = fs.createWriteStream('../logs/log.log', { flags: 'a' });
 app.use(express.json())
 
 app.get('/', (req, res) => {
- logger.write(('GET:/') + '<br/>');
+ logger.write(('GET:/') + '\n');
  res.send('Go to /version or /logs');
- logger.write('SUCCESS/<br/>');
+ logger.write('SUCCESS/\n');
 });
 
 app.get("/version", (req, res) => {
