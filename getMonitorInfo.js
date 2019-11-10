@@ -1,5 +1,3 @@
-var logger = fs.createWriteStream('../logs/log.log', { flags: 'a' });
-
 exports.getTotal = function() {
 	//var logContents = fs.readFileSync('../logs/log.log', 'utf8').toString().split('\n');
 	var total = 0;
