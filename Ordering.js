@@ -11,19 +11,19 @@ app.use(express.json())
 app.get('/', (req, res) => {
  logger.write(('GET:/') + '<br/>');
  res.send('Go to /version or /logs');
- logger.write('GET:SUCCESS/<br/>');
+ logger.write('SUCCESS/<br/>');
 });
 
 app.get("/version", (req, res) => {
  logger.write('GET:/version');
  res.send(`This is version 1 of the HotBurger service`);
- logger.write('GET:SUCCESS:/version<br/>');
+ logger.write('SUCCESS:/version<br/>');
 });
 
 app.post('/purchase', function (req, res) {
 	logger.write('POST:' + req.query.item + ':' + req.query.quantity);
 	res.send(req.query.item);
-	logger.write('POST:SUCCESS:/purchase<item><quantity><br/>');
+	logger.write('SUCCESS:/purchase<item><quantity><br/>');
 });
 
 app.get("/logs", (req, res) => {
