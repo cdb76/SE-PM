@@ -67,7 +67,7 @@ function parseLog() {
 				requestStatus = logContents[i];
 		}
 	}
-};
+}
 
 app.listen(port, () => {
  logger.write('Server running on port: ' + port + '<br/>');
