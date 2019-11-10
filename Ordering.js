@@ -9,23 +9,23 @@ var logger = fs.createWriteStream('../logs/log.log', { flags: 'a' });
 app.use(express.json())
 
 app.get('/', (req, res) => {
- logger.write(('GET:/') + '\n');
+ logger.write('GET:/\n');
  res.send('Go to /version or /logs');
  logger.write('SUCCESS/\n');
 });
 
 app.get("/version", (req, res) => {
- logger.write('GET:/version');
+ logger.write('GET:/version\n');
  res.send(`This is version 1 of the HotBurger service`);
- logger.write('SUCCESS:/version<br/>');
+ logger.write('SUCCESS:/version\n');
 });
 
 app.post('/purchase', function (req, res) {
-	logger.write('POST:' + req.query.item + ':' + req.query.quantity);
+	logger.write('POST:' + req.query.item + ':' + req.query.quantity + '\n');
 	res.send(req.query.item);
-	logger.write('SUCCESS:/purchase<item><quantity><br/>');
+	logger.write('SUCCESS:/purchase<item><quantity>\n');
 });
 
 app.listen(port, () => {
- logger.write('Server running on port: ' + port + '<br/>');
+ logger.write('Server running on port: ' + port + '\n');
 });
