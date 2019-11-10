@@ -35,7 +35,7 @@ app.get("/getrequesttime", (req, res) => {
 
 app.get("/logs", (req, res) => {
  var logContents = fs.readFileSync('../logs/log.log', 'utf8');
- logContents.split('\n').join('<br/>');
+ logContents = logContents.split('\n').join('<br/>');
  res.send(logContents);
 });
 
