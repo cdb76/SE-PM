@@ -8,9 +8,9 @@ var util = require('util');
 var logger = fs.createWriteStream('../logs/log.log', { flags: 'a' });
 
 app.get("/gettotal", (req, res) => {
-	logger.write(('GET:/gettotal') + '<br/>');
+	logger.write(('GET:/gettotal\n'));
 	res.send(`/gettotal ` + info.getTotal());
-	logger.write(('GET:SUCCESS:/gettotal') + '<br/>');
+	logger.write(('GET:SUCCESS:/gettotal\n'));
 });
 app.get("/gettopseller", (req, res) => {
 	logger.write(('GET:/gettopseller') + '<br/>');
