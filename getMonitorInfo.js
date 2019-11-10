@@ -64,5 +64,6 @@ exports.getTopSeller = function() {
 		topSellerName = "Cookie";
 	}
 	
-	return topSellerName;
+	//return topSellerName;
+	return topSeller;
 };
