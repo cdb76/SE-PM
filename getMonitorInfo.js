@@ -82,8 +82,13 @@ exports.getRequestCount = function() {
 
 exports.getLastRequestStatus = function() {
 	var logContents = fs.readFileSync('../logs/log.log', 'utf8').toString().split('\n');
-	
-	var requestStatus = logContents[(logContents.length)-1]
+	var requestStatus = logContents[(logContents.length)-2]
+	var info = requestStatus.split(":");
+	if(info[0] == "SUCCESS")
+	{
+		return info[0];
+	}
+	//var requestStatus = logContents[(logContents.length)-2]
 	//var info = requestStatus.split(":");
 	//return info[0];
 	return requestStatus;
@@ -92,7 +97,7 @@ exports.getLastRequestStatus = function() {
 exports.getLastRequestTime = function() {
 	var logContents = fs.readFileSync('../logs/log.log', 'utf8').toString().split('\n');
 	
-	var requestStatus = logContents[(logContents.length)-2]
+	var requestStatus = logContents[(logContents.length)-3]
 	var info = requestStatus.split(":");
-	return info[2];
+	return info[0];
 };
