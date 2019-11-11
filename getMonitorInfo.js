@@ -1,6 +1,10 @@
 var fs = require('fs');
 
 exports.getTotal = function() {
+	var hotdogCost = 20;
+	var hamburgerCost = 35;
+	var sodaCost = 4;
+	var cookieCost = 6;
 	var logContents = fs.readFileSync('../logs/log.log', 'utf8').toString().split('\n');
 	var total = 0;
 	for (i in logContents) {
@@ -8,16 +12,16 @@ exports.getTotal = function() {
 		
 		if(info[0] == "POST") {
 			if(info[1] == "Hotdog") {
-				total = total + (info[2] * 20);
+				total = total + (info[2] * hotdogCost);
 			}
 			else if(info[1] == "Hamburger") {
-				total = total + (info[2] * 35);
+				total = total + (info[2] * hamburgerCost);
 			}
 			else if(info[1] == "Soda") {
-				total = total + (info[2] * 4);
+				total = total + (info[2] * sodaCost);
 			}
 			else if(info[1] == "Cookie") {
-				total = total + (info[2] * 6);
+				total = total + (info[2] * cookieCost);
 			}
 		}
 	}
@@ -88,10 +92,7 @@ exports.getLastRequestStatus = function() {
 	{
 		return info[0];
 	}
-	//var requestStatus = logContents[(logContents.length)-2]
-	//var info = requestStatus.split(":");
-	//return info[0];
-	return requestStatus;
+	return "FAIL";
 };
 
 exports.getLastRequestTime = function() {
@@ -99,5 +100,6 @@ exports.getLastRequestTime = function() {
 	
 	var requestStatus = logContents[(logContents.length)-3]
 	var info = requestStatus.split(":");
-	return info[2];
+	var time = info[2].split(":").join(":");
+	return time;
 };
