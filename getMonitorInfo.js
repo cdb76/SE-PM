@@ -84,8 +84,9 @@ exports.getLastRequestStatus = function() {
 	var logContents = fs.readFileSync('../logs/log.log', 'utf8').toString().split('\n');
 	
 	var requestStatus = logContents[(logContents.length)-2]
-	var info = requestStatus.split(":");
-	return info[0];
+	//var info = requestStatus.split(":");
+	//return info[0];
+	return requestStatus;
 };
 
 exports.getLastRequestTime = function() {
