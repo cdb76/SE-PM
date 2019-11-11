@@ -40,5 +40,5 @@ app.get("/logs", (req, res) => {
 });
 
 app.listen(port, () => {
- logger.write('Server running on port: ' + port + '<br/>');
+ //logger.write('Server running on port: ' + port + '<br/>');
 });
