@@ -100,6 +100,13 @@ exports.getLastRequestTime = function() {
 	
 	var requestStatus = logContents[(logContents.length)-3]
 	var info = requestStatus.split(":");
-	var time = info[2].split(":").join(":");
-	return time;
+	if(info[0] == "POST") {
+		var time = info[3].split(":").join(":");
+		return time;
+	}
+	else {
+		var time = info[2].split(":").join(":");
+		return time;
+	}
+	return "Failed to retrieve time";
 };
