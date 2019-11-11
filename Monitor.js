@@ -29,7 +29,7 @@ app.get("/getlastrequeststatus", (req, res) => {
 });
 app.get("/getlastrequesttime", (req, res) => {
 	//logger.write('GET:/getrequesttime\n');
-	res.send(`/getrequesttime`);
+	res.send(`Last request occured: ` + info.getLastRequestTime());
 	//logger.write('SUCCESS:/getrequesttime\n');
 });
 
