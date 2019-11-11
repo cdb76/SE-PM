@@ -22,7 +22,7 @@ app.get("/version", (req, res) => {
 });
 
 app.get("/getmenu", (req, res) => {
- logger.write('GET:/getmenu' + time.getTime() + '\n');
+ logger.write('GET:/getmenu:' + time.getTime() + '\n');
  res.send(`Hotdog: $20 <br/> Hamburger: $35 <br/> Soda: $4 <br/> Cookie: $6 <br/>`);
  logger.write('SUCCESS:/getmenu\n');
 });
