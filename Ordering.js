@@ -29,7 +29,6 @@ app.get("/getmenu", (req, res) => {
 
 app.post('/purchase', function (req, res) {
 	logger.write('POST:' + req.query.item + ':' + req.query.quantity + ':' + time.getTime() + '\n');
-	res.send(req.query.item);
 	logger.write('SUCCESS:/purchase<item><quantity>\n');
 });
 
