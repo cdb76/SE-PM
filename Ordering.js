@@ -5,7 +5,7 @@ const port = 80
 var fs = require('fs');
 var util = require('util');
 var logger = fs.createWriteStream('../logs/log.log', { flags: 'a' });
-var info = require('./getTime');
+var time = require('./getTime');
 
 app.use(express.json())
 
