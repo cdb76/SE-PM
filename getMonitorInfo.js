@@ -99,5 +99,5 @@ exports.getLastRequestTime = function() {
 	
 	var requestStatus = logContents[(logContents.length)-3]
 	var info = requestStatus.split(":");
-	return info[0];
+	return info[2];
 };
