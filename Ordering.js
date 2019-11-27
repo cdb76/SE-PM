@@ -1,4 +1,5 @@
 const express = require('express')
+const axios = require('axios')
 const app = express()
 const port = 80
 
@@ -29,6 +30,10 @@ app.get("/getmenu", (req, res) => {
 
 app.post('/purchase', function (req, res) {
 	logger.write('POST:' + req.query.item + ':' + req.query.quantity + ':' + time.getTime() + '\n');
+	axios.get('https://localhost:8081/?item='+req.query.item+'?quantity='+req.query.quantity)
+		.then(function(response) {
+			res.send(response);
+		});
 	res.send('Sent');
 	logger.write('SUCCESS:/purchase<item><quantity>\n');
 });
