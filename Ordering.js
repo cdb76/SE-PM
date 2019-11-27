@@ -32,15 +32,16 @@ app.get("/getmenu", (req, res) => {
 
 app.post('/purchase', function (req, res) {
 	logger.write('POST:' + req.query.item + ':' + req.query.quantity + ':' + time.getTime() + '\n');
-	
-	return axios.get('http://18.224.200.58:8081/getcount')
-	.then((response) => {
-		res.send(response.data);
-	})
-	.catch(error => {
-		res.send('this happensx23');
-		console.log(error);
-	});
+	var data = axiosGet();
+	res.send(data);
+	//return axios.get('http://18.224.200.58:8081/getcount')
+	/.then((response) => {
+	//	res.send(response.data);
+	//})
+	//.catch(error => {
+	//	res.send('this happensx23');
+	//	console.log(error);
+	//});
 	
 	res.send(" i am here");
 	
@@ -54,7 +55,7 @@ app.listen(port, () => {
 function axiosGet() {
 	return axios.get('http://18.224.200.58:8081/getcount')
 	.then((response) => {
-		res.send(response.data);
+		return response.data;
 	})
 	.catch(error => {
 		res.send('this happensx23');
