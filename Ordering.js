@@ -50,7 +50,7 @@ app.post('/purchase', function (req, res) {
         buildResponse(response).then(results => res.send(results));
     })
     .on('error', e => {
-        console.error(`Got error: ${e.message}`);
+        res.send(`Got error: ${e.message}`);
     });
 	res.send('Sent');
 	logger.write('SUCCESS:/purchase<item><quantity>\n');
