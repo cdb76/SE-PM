@@ -1,5 +1,5 @@
 const express = require('express')
-cont http = require('https')
+const http = require('https')
 const axios = require('axios')
 const app = express()
 const port = 80
@@ -46,8 +46,7 @@ app.post('/purchase', function (req, res) {
 	//		res.send(error);
 	//	});
 		
-    http
-    .get(`18.224.200.58:8081/getcount`, response => {
+    http.get(`18.224.200.58:8081/getcount`, response => {
         buildResponse(response).then(results => res.send(results));
     })
     .on('error', e => {
