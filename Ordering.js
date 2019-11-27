@@ -7,7 +7,7 @@ var fs = require('fs');
 var util = require('util');
 var logger = fs.createWriteStream('../logs/log.log', { flags: 'a' });
 var time = require('./getTime');
-var host = '18.224.200.58';
+var host = '18.224.200.58:8081';
 
 app.use(express.json())
 
@@ -31,8 +31,9 @@ app.get("/getmenu", (req, res) => {
 
 app.post('/purchase', function (req, res) {
 	logger.write('POST:' + req.query.item + ':' + req.query.quantity + ':' + time.getTime() + '\n');
-	axios.get(host+':8081?'+req.query.item+'&quantity='+req.query.quantity)
-		.then(function(response) {
+	res.send(host+'/getcount?item='+req.query.item+'&quantity='+req.query.quantity);
+	axios.get(host+'/getcount?item='+req.query.item+'&quantity='+req.query.quantity)
+		.then(response => {
 			res.send(response);
 		});
 	res.send('Sent');
