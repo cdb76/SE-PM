@@ -46,12 +46,17 @@ app.post('/purchase', function (req, res) {
 	//		res.send(error);
 	//	});
 		
-    http.get(`http://18.224.200.58:8081/getcount`, response => {
-        buildResponse(response).then(results => res.send(results));
-    })
-    .on('error', e => {
-        res.send(`Got error: ${e.message}`);
-    });
+   // http.get(`http://18.224.200.58:8081/getcount`, response => {
+    //    buildResponse(response).then(results => res.send(results));
+    //})
+    //.on('error', e => {
+    //    res.send(`Got error: ${e.message}`);
+   // });
+	
+	axios.get('http://webcode.me').then(resp => {
+
+		res.send(resp.data);
+	});
 	res.send('Sent');
 	logger.write('SUCCESS:/purchase<item><quantity>\n');
 });
