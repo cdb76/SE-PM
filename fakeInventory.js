@@ -11,7 +11,8 @@ let sodaCount = 25;
 let cookieCount = 20;
 
 app.get("/getcount", (req, res) => {
-	if(req.query.item === 'Hotdog'){
+	res.send(req.query.item);
+	if(req.query.item === 'Hotdog'){ // this isnt working correctly -------------->
 		res.send('10');
 	}
 	else if(req.query.item === 'Hamburger'){
