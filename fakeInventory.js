@@ -12,16 +12,16 @@ let cookieCount = 20;
 
 app.get("/getcount", (req, res) => {
 	if(req.query.item === 'Hotdog'){
-		res.send(hotdogCount.toString());
+		res.send(10);
 	}
 	else if(req.query.item === 'Hamburger'){
-		res.send(hamburgerCount.toString());
+		res.send(15);
 	}
 	else if(req.query.item === 'Soda'){
-		res.send(sodaCount.toString());
+		res.send(25);
 	}
 	else if(req.query.item === 'Cookie'){
-		res.send(cookieCount.toString());
+		res.send(20);
 	}
 	else{
 		res.send('Invalid');
