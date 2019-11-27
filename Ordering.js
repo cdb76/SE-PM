@@ -35,7 +35,7 @@ app.post('/purchase', function (req, res) {
 	var data = axiosGet();
 	res.send(data);
 	//return axios.get('http://18.224.200.58:8081/getcount')
-	/.then((response) => {
+	//.then((response) => {
 	//	res.send(response.data);
 	//})
 	//.catch(error => {
