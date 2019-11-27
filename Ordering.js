@@ -46,7 +46,7 @@ app.listen(port, () => {
 function axiosGet() {
 	return axios.get('http://18.224.200.58:8081/getcount')
 	.then((response) => {
-		res.send(response.data);
+		return response.data;
 	})
 	.catch(error => {
 		res.send('this happensx23');
