@@ -32,6 +32,18 @@ app.get("/getmenu", (req, res) => {
 
 app.post('/purchase', function (req, res) {
 	logger.write('POST:' + req.query.item + ':' + req.query.quantity + ':' + time.getTime() + '\n');
+	
+	axiosGet().then(data => {
+		res.send(response.data)});
+	
+	logger.write('SUCCESS:/purchase<item><quantity>\n');
+});
+
+app.listen(port, () => {
+ logger.write('Server running on port: ' + port + '\n');
+});
+
+function axiosGet() {
 	return axios.get('http://18.224.200.58:8081/getcount')
 	.then((response) => {
 		res.send(response.data);
@@ -40,10 +52,4 @@ app.post('/purchase', function (req, res) {
 		res.send('this happensx23');
     console.log(error);
 	});
-	
-	logger.write('SUCCESS:/purchase<item><quantity>\n');
-});
-
-app.listen(port, () => {
- logger.write('Server running on port: ' + port + '\n');
-});
+}
