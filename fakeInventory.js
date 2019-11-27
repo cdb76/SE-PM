@@ -12,10 +12,10 @@ let cookieCount = 20;
 
 app.get("/getcount", (req, res) => {
 	var s = req.query.item;
-	res.send(s);
-	//if(req.query.item === 'Soda'){
-	//	res.send('25');
-	//}
+	//res.send(s);
+	if(s === 'Soda'){
+		res.send('25');
+	}
 
 });
 
