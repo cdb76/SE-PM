@@ -32,7 +32,7 @@ app.get("/getmenu", (req, res) => {
 app.post('/purchase', function (req, res) {
 	logger.write('POST:' + req.query.item + ':' + req.query.quantity + ':' + time.getTime() + '\n');
 	//res.send(host+'/getcount?item='+req.query.item+'&quantity='+req.query.quantity);
-	axios.get(host+'/getcount?item=', {}, {}).then(
+	axios.get(host+'/getcount', {item: req.query.item}, {quantity: req.query.quantity}).then(
 		response => { res.send(response.data );}
 	).catch(err => {res.send(err.message);});
 	res.send('Sent');
