@@ -12,36 +12,16 @@ let cookieCount = 20;
 
 app.get("/getcount", (req, res) => {
 	if(req.query.item === 'Hotdog'){
-		if(parseInt(req.query.quantity,10) <= hotdogCount){
-			res.send('Success');
-		}
-		else{
-			res.send('Fail');
-		}
+		res.send(hotdogCount);
 	}
 	else if(req.query.item === 'Hamburger'){
-		if(parseInt(req.query.quantity,10) <= hamburgerCount){
-			res.send('Success');
-		}
-		else{
-			res.send('Fail');
-		}
+		res.send(hamburgerCount);
 	}
 	else if(req.query.item === 'Soda'){
-		if(parseInt(req.query.quantity,10) <= sodaCount){
-			res.send('Success');
-		}
-		else{
-			res.send('Fail');
-		}
+		res.send(sodaCount);
 	}
 	else if(req.query.item === 'Cookie'){
-		if(parseInt(req.query.quantity,10) <= cookieCount){
-			res.send('Success');
-		}
-		else{
-			res.send('Fail');
-		}
+		res.send(cookieCount);
 	}
 	else{
 		res.send('Invalid');
@@ -49,7 +29,21 @@ app.get("/getcount", (req, res) => {
 });
 
 app.post('/setcount', function (req, res) {
-	res.send(req.query.item + ':' + req.query.quantity + '\n');
+	if(req.query.item === 'Hotdog'){
+		hotdogCount = parseInt(req.query.quantity,10);
+	}
+	else if(req.query.item === 'Hamburger'){
+		hamburgerCount = parseInt(req.query.quantity,10);
+	}
+	else if(req.query.item === 'Soda'){
+		sodaCount = parseInt(req.query.quantity,10);
+	}
+	else if(req.query.item === 'Cookie'){
+		cookieCount = parseInt(req.query.quantity,10);
+	}
+	else{
+		res.send('Invalid');
+	}	
 });
 
 app.listen(port, () => {
