@@ -33,15 +33,8 @@ app.get("/getmenu", (req, res) => {
 app.post('/purchase', function (req, res) {
 	logger.write('POST:' + req.query.item + ':' + req.query.quantity + ':' + time.getTime() + '\n');
 	return axios.get('http://18.224.200.58:8081/getcount?item=' + req.query.item)
-	.then((response) => {	
-		res.send(response.data);
-		if(parseInt(req.query.quantity,10) <= parseInt(response.data,10)){
-			logger.write('SUCCESS:/purchase<item><quantity>\n');
-			res.send(response.data);
-		}
-		else{
-			res.send(response.data);
-		}
+	.then((response) => {
+		res.send(response.data);		
 	})
 	.catch(error => {
 		res.send('this happensx23');
