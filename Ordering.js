@@ -36,7 +36,7 @@ app.post('/purchase', function (req, res) {
 	return axios.get('http://18.224.200.58:8081/getcount?item='+req.query.item) //Soda')
 	.then((response) => {
 		//res.send(response.data.quantity);	
-		if(req.query.quantity <= response.data.quantity){
+		if(parseInt(req.query.quantity) <= parseInt(response.data.quantity)){
 			res.send('success');	
 		}
 		else{
