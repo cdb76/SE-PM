@@ -11,8 +11,7 @@ let sodaCount = 25;
 let cookieCount = 20;
 
 app.get("/getcount", (req, res) => {
-	//res.send(req.query.item + ':' + req.query.quantity + '\n');
-	res.send('Hello');
+	res.send(req.query.item + ':' + req.query.quantity + '\n');
 });
 
 app.post('/setcount', function (req, res) {
