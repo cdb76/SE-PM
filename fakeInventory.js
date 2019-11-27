@@ -12,7 +12,7 @@ let cookieCount = 20;
 
 app.get("/getcount", (req, res) => {
 	if(req.query.item === 'Hotdog'){
-		if(req.query.quantity <= hotdogCount){
+		if(parseInt(req.query.quantity,10) <= hotdogCount){
 			res.send('Success');
 		}
 		else{
@@ -20,7 +20,7 @@ app.get("/getcount", (req, res) => {
 		}
 	}
 	else if(req.query.item === 'Hamburger'){
-		if(req.query.quantity <= hamburgerCount){
+		if(parseInt(req.query.quantity,10) <= hamburgerCount){
 			res.send('Success');
 		}
 		else{
@@ -28,7 +28,7 @@ app.get("/getcount", (req, res) => {
 		}
 	}
 	else if(req.query.item === 'Soda'){
-		if(req.query.quantity <= sodaCount){
+		if(parseInt(req.query.quantity,10) <= sodaCount){
 			res.send('Success');
 		}
 		else{
@@ -36,7 +36,7 @@ app.get("/getcount", (req, res) => {
 		}
 	}
 	else if(req.query.item === 'Cookie'){
-		if(req.query.quantity <= cookieCount){
+		if(parseInt(req.query.quantity,10) <= cookieCount){
 			res.send('Success');
 		}
 		else{
@@ -54,5 +54,3 @@ app.post('/setcount', function (req, res) {
 
 app.listen(port, () => {
 });
-
-	res.send(req.query.item + ':' + req.query.quantity + '\n');
