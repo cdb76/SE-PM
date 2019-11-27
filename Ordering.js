@@ -32,32 +32,14 @@ app.get("/getmenu", (req, res) => {
 
 app.post('/purchase', function (req, res) {
 	logger.write('POST:' + req.query.item + ':' + req.query.quantity + ':' + time.getTime() + '\n');
-	//res.send(host+'/getcount?item='+req.query.item+'&quantity='+req.query.quantity);
-	//axios.get(host+'/getcount', {item: req.query.item}, {quantity: req.query.quantity}).then(
-	//	response => { res.send(response.data );}
-	//).catch(err => {res.send(err.message);});
+	var data;
+	axios.get('https://api.github.com/users/mapbox')
+	.then((response) => {
+    data = response.data;
+  });
+  
+  res.send(data)
 	
-	//axios.get('18.224.200.58:8081/getcount')
-	//	.then(response => {
-	//		res.send(response.data.url);
-	//		res.send(response.data.explanation);
-	//	})
-	//	.catch(error => {
-	//		res.send(error);
-	//	});
-		
-   // http.get(`http://18.224.200.58:8081/getcount`, response => {
-    //    buildResponse(response).then(results => res.send(results));
-    //})
-    //.on('error', e => {
-    //    res.send(`Got error: ${e.message}`);
-   // });
-	
-	axios.get('http://webcode.me').then(resp => {
-
-		res.send(resp.data);
-	});
-	res.send('Sent');
 	logger.write('SUCCESS:/purchase<item><quantity>\n');
 });
 
