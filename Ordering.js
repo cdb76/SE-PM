@@ -33,12 +33,12 @@ app.get("/getmenu", (req, res) => {
 app.post('/purchase', function (req, res) {
 	logger.write('POST:' + req.query.item + ':' + req.query.quantity + ':' + time.getTime() + '\n');
 	var data;
-	axios.get('https://api.github.com/users/mapbox')
+	axios.get('http://18.224.200.58:8081/getcount')
 	.then((response) => {
     data = response.data;
   });
   
-  res.send(data)
+  res.send(data);
 	
 	logger.write('SUCCESS:/purchase<item><quantity>\n');
 });
