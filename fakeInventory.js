@@ -11,17 +11,17 @@ let sodaCount = 25;
 let cookieCount = 20;
 
 app.get("/getcount", (req, res) => {
-	res.send(req.query.item);
-	if(req.query.item === 'Hotdog'){ // this isnt working correctly -------------->
+	//res.send(req.query.item);
+	if(req.query.item == 'Hotdog'){ // this isnt working correctly -------------->
 		res.send('10');
 	}
-	else if(req.query.item === 'Hamburger'){
+	else if(req.query.item == 'Hamburger'){
 		res.send('15');
 	}
-	else if(req.query.item === 'Soda'){
+	else if(req.query.item == 'Soda'){
 		res.send('25');
 	}
-	else if(req.query.item === 'Cookie'){
+	else if(req.query.item == 'Cookie'){
 		res.send('20');
 	}
 	else{
