@@ -12,7 +12,7 @@ let cookieCount = 20;
 
 app.get("/getcount", (req, res) => {
 	var s = req.query.item;
-	res.send('{quantity: "25"}');
+	res.send('{"quantity": "25"}');
 });
 
 app.post('/setcount', function (req, res) {
