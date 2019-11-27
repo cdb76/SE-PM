@@ -32,18 +32,14 @@ app.get("/getmenu", (req, res) => {
 
 app.post('/purchase', function (req, res) {
 	logger.write('POST:' + req.query.item + ':' + req.query.quantity + ':' + time.getTime() + '\n');
-	var data;
 	return axios.get('http://18.224.200.58:8081/getcount')
 	.then((response) => {
-		res.send('this happens');
-    data = response.data;
+		res.send(response.data);
 	})
 	.catch(error => {
 		res.send('this happensx23');
     console.log(error);
 	});
-  
-  res.send(data);
 	
 	logger.write('SUCCESS:/purchase<item><quantity>\n');
 });
