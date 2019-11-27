@@ -37,7 +37,10 @@ app.post('/purchase', function (req, res) {
 	.then((response) => {
 		res.send('this happens');
     data = response.data;
-  });
+	})
+	.catch(error => {
+    console.log(error);
+	});
   
   res.send(data);
 	
