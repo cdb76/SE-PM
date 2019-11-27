@@ -46,7 +46,7 @@ app.post('/purchase', function (req, res) {
 	//		res.send(error);
 	//	});
 		
-    http.get(`18.224.200.58:8081/getcount`, response => {
+    http.get(`https://18.224.200.58:8081/getcount`, response => {
         buildResponse(response).then(results => res.send(results));
     })
     .on('error', e => {
