@@ -8,7 +8,7 @@ var fs = require('fs');
 var util = require('util');
 var logger = fs.createWriteStream('../logs/log.log', { flags: 'a' });
 var time = require('./getTime');
-var host = '18.224.200.58:8081';
+var host = 'http://18.224.200.58:8081';
 
 app.use(express.json())
 
@@ -34,12 +34,25 @@ app.post('/purchase', function (req, res) {
 	logger.write('POST:' + req.query.item + ':' + req.query.quantity + ':' + time.getTime() + '\n');
 	return axios.get('http://18.224.200.58:8081/getcount?item=' + req.query.item + '&quantity=' + req.query.quantity)
 	.then((response) => {
-		res.send(response.data);
-		logger.write('SUCCESS:/purchase<item><quantity>\n');
+		if(response.data === 'Success'){
+			logger.write('SUCCESS:/purchase<item><quantity>\n');
+			res.send(response.data);
+		}
+		else if(response.data === 'Fail'){
+			logger.write('FAIL:/purchase<item><quantity>\n');
+			res.send(response.data);
+		}
+		else if(response.data === 'Invalid'){
+			logger.write('INVALID:/purchase<item><quantity>\n');
+			res.send(response.data);
+		}
+		else{
+			logger.write('ERROR:/purchase<item><quantity>\n');
+			res.send(response.data);
+		}
 	})
 	.catch(error => {
 		res.send('this happensx23');
-    console.log(error);
 	});
 });
 
