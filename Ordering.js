@@ -32,22 +32,13 @@ app.get("/getmenu", (req, res) => {
 
 app.post('/purchase', function (req, res) {
 	logger.write('POST:' + req.query.item + ':' + req.query.quantity + ':' + time.getTime() + '\n');
-	return axios.get('http://18.224.200.58:8081/getcount?item=' + req.query.item + '&quantity=' + req.query.quantity)
-	.then((response) => {
-		if(response.data === 'Success'){
+	return axios.get('http://18.224.200.58:8081/getcount?item=' + req.query.item)
+	.then((response) => {	
+		if(parseInt(req.query.quantity,10) <= parseInt(response.data,10)){
 			logger.write('SUCCESS:/purchase<item><quantity>\n');
 			res.send(response.data);
 		}
-		else if(response.data === 'Fail'){
-			logger.write('FAIL:/purchase<item><quantity>\n');
-			res.send(response.data);
-		}
-		else if(response.data === 'Invalid'){
-			logger.write('INVALID:/purchase<item><quantity>\n');
-			res.send(response.data);
-		}
 		else{
-			logger.write('ERROR:/purchase<item><quantity>\n');
 			res.send(response.data);
 		}
 	})
