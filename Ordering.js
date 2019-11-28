@@ -8,7 +8,7 @@ var fs = require('fs');
 var util = require('util');
 var logger = fs.createWriteStream('../logs/log.log', { flags: 'a' });
 var time = require('./getTime');
-var host = 'http://18.224.200.58:8081';
+var getCount = 'http://18.224.200.58:8081';
 
 app.use(express.json())
 
@@ -51,6 +51,11 @@ app.post('/purchase', function (req, res) {
 	
 	res.send('error');
 	logger.write('FAIL:/purchase<item><quantity>\n');
+});
+
+app.get("/logs", (req, res) => {
+ var logContents = fs.readFileSync('../logs/log.log', 'utf8');
+ res.send(logContents);
 });
 
 app.listen(port, () => {
