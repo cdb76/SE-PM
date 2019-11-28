@@ -19,7 +19,7 @@ app.get("/getcount", (req, res) => {
 		res.send('{"quantity": '+hamburgerCount+'}');
 	}
 	else if(req.query.item == "Soda"){
-		res.send('{"quantity": 'sodaCount+'}');
+		res.send('{"quantity": '+sodaCount+'}');
 	}
 	else if(req.query.item == "Cookie"){
 		res.send('{"quantity": '+cookieCount+'}');
