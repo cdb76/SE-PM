@@ -16,13 +16,13 @@ app.get("/getcount", (req, res) => {
 		res.send('{"quantity": '+hotdogCount+'}');
 	}
 	else if(req.query.item == "Hamburger"){
-		res.send('{"quantity": "15"}');
+		res.send('{"quantity": '+hamburgerCount+'}');
 	}
 	else if(req.query.item == "Soda"){
-		res.send('{"quantity": "25"}');
+		res.send('{"quantity": 'sodaCount+'}');
 	}
 	else if(req.query.item == "Cookie"){
-		res.send('{"quantity": "20"}');
+		res.send('{"quantity": '+cookieCount+'}');
 	}
 	else{
 		res.send('{"quantity": "-1"}');
@@ -33,19 +33,23 @@ app.get("/getcount", (req, res) => {
 app.post('/setcount', function (req, res) {
 	if(req.query.item == 'Hotdog'){
 		hotdogCount = req.query.quantity;
+		res.send('SUCCESS');
 	}
 	else if(req.query.item == 'Hamburger'){
 		hamburgerCount = req.query.quantity;
+		res.send('SUCCESS');
 	}
 	else if(req.query.item == 'Soda'){
 		sodaCount = req.query.quantity;
+		res.send('SUCCESS');
 	}
 	else if(req.query.item == 'Cookie'){
-		cookieCount = req.query.quantity,10;
+		cookieCount = req.query.quantity;
+		res.send('SUCCESS');
 	}
 	else{
 		res.send('Invalid');
-	}	
+	}
 });
 
 app.listen(port, () => {
