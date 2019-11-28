@@ -33,21 +33,24 @@ app.get("/getmenu", (req, res) => {
 app.post('/purchase', function (req, res) {
 	logger.write('POST:' + req.query.item + ':' + req.query.quantity + ':' + time.getTime() + '\n');
 	
-	return axios.get('http://18.224.200.58:8081/getcount?item='+req.query.item) //Soda')
+	return axios.get('http://18.224.200.58:8081/getcount?item='+req.query.item)
 	.then((response) => {
-		//res.send(response.data.quantity);	
 		if(parseInt(req.query.quantity) <= parseInt(response.data.quantity)){
 			res.send('success');	
+			logger.write('SUCCESS:/purchase<item><quantity>\n');
 		}
 		else{
 			res.send('fail');
+				logger.write('FAIL:/purchase<item><quantity>\n');
 		}
 	})
 	.catch(error => {
 		res.send('error');
+		logger.write('FAIL:/purchase<item><quantity>\n');
 	});
 	
 	res.send('error');
+	logger.write('FAIL:/purchase<item><quantity>\n');
 });
 
 app.listen(port, () => {
