@@ -13,7 +13,7 @@ let cookieCount = "20";
 app.get("/getcount", (req, res) => {
 	//new
 	if(req.query.item == "Hotdog"){
-		res.send('{"quantity": "10"}');
+		res.send('{"quantity": '+hotdogCount+'}');
 	}
 	else if(req.query.item == "Hamburger"){
 		res.send('{"quantity": "15"}');
@@ -27,10 +27,7 @@ app.get("/getcount", (req, res) => {
 	else{
 		res.send('{"quantity": "-1"}');
 	}
-	
-	//old
-	//var s = req.query.item;
-	//res.send('{"quantity": "25"}');
+
 });
 
 app.post('/setcount', function (req, res) {
