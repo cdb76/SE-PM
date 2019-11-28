@@ -3,21 +3,24 @@ const axios = require('axios')
 var purchase = 'http://18.224.200.58';
 var count = 0;
 while(count < 10){
-	axios.post(purchase+'/purchase?item=Hotdog&quantity=10');
+	axios.post(purchase+'/purchase', {
+		item: 'Hotdog',
+		quantity: '15'
+	});
 	sleep(1000);
 	axios.post(purchase+'/purchase', {
 		item: 'Hamburger',
-		quantity: '15'
+		quantity: '5'
 	});
 	sleep(1000);
 	axios.post(purchase+'/purchase', {
 		item: 'Soda',
-		quantity: '15'
+		quantity: '8'
 	});
 	sleep(1000);
 	axios.post(purchase+'/purchase', {
 		item: 'Cookie',
-		quantity: '15'
+		quantity: '3'
 	});
 	sleep(1000);
 	count++;
