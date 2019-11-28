@@ -46,16 +46,9 @@ app.post('/purchase', function (req, res) {
 	})
 	.catch(error => {
 		res.send('error');
-		logger.write('FAIL:/purchase<item><quantity>\n');
 	});
 	
 	res.send('error');
-	logger.write('FAIL:/purchase<item><quantity>\n');
-});
-
-app.get("/logs", (req, res) => {
- var logContents = fs.readFileSync('../logs/log.log', 'utf8');
- res.send(logContents);
 });
 
 app.listen(port, () => {
