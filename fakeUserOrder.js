@@ -5,11 +5,20 @@ var count = 0;
 while(count < 10){
 	axios.post(purchase+'/purchase?item=Hotdog&quantity=10');
 	sleep(1000);
-	axios.post(purchase+'/purchase?item=Hamburger&quantity=10');
+	axios.post(purchase+'/purchase', {
+		item: 'Hamburger',
+		quantity: '15'
+	});
 	sleep(1000);
-	axios.post(purchase+'/purchase?item=Soda&quantity=10');
+	axios.post(purchase+'/purchase', {
+		item: 'Soda',
+		quantity: '15'
+	});
 	sleep(1000);
-	axios.post(purchase+'/purchase?item=Cookie&quantity=10');
+	axios.post(purchase+'/purchase', {
+		item: 'Cookie',
+		quantity: '15'
+	});
 	sleep(1000);
 	count++;
 }
